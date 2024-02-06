@@ -11,22 +11,14 @@ var merge = function(nums1, m, nums2, n) {
     //we have to start from reverse side of the array
     while(i>=0 && j>=0){
         if(nums1[i]<nums2[j]){
-            nums1[id]=nums2[j];
-            id--;
-            j--;
+            nums1[id--]=nums2[j--];
         }
         else if(nums1[i]>nums2[j]){
-            nums1[id]=nums1[i];
-            id--;
-            i--;
+            nums1[id--]=nums1[i--];
         }
         else{
-            nums1[id]=nums2[j];
-            id--;
-            j--;
-            nums1[id]=nums1[i];
-            id--;
-            i--;
+            nums1[id--]=nums2[j--];
+            nums1[id--]=nums1[i--];
         }
     }
     while(i>=0){
