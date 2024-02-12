@@ -25,7 +25,7 @@ var majorityElement = function(nums) {
     for(let i=0;i<nums.length;i++){
         if(count===0){ //if count=0, candidate=current_element
             candidate=nums[i];
-            count=1;
+            count=1; //set count=1, for new candidate
         }
         else if(candidate===nums[i])count++; //if candidate=current_element, count++
         else if(candidate!==nums[i])count--; //if candidate!=current_element, count--
