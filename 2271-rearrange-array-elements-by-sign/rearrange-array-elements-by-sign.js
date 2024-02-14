@@ -4,7 +4,7 @@
  */
 var rearrangeArray = function(nums) {
     let positive=0,negetive=1;
-    let result=new Array(nums.length).fill(0);
+    let result=new Array(nums.length);
 
     for(let i=0;i<nums.length;i++){
         if(nums[i]>=0){
