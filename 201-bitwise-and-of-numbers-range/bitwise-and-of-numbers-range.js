@@ -33,11 +33,16 @@ var rangeBitwiseAnd = function (left, right) {
 
     Result = 4
     */
-    let count = 0;
-    while (left != right) {
-        left >>= 1;
-        right >>= 1;
-        count++;
-    }
-    return left << count;
+    // let count = 0;
+    // while (left != right) {
+    //     left >>= 1;
+    //     right >>= 1;
+    //     count++;
+    // }
+    // return left << count;
+
+
+    while(right>left)
+           right = right & (right-1);
+    return right&left;
 };
