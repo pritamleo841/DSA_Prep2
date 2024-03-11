@@ -12,6 +12,7 @@ var customSortString = function(order, s) {
     //traverse through order
     let index=0;
     let str=[];
+    //chars that were in order
     for(let i=0;i<order.length;i++){
         let freq = map.get(order[i] || 0);
         while(freq--){
@@ -19,7 +20,7 @@ var customSortString = function(order, s) {
             map.set(order[i],freq-1);
         }
     }
-    console.log(str,map);
+    //remaining chars of s
     for(const [key,val] of map){
         if(val>0){
             let freq=val;
@@ -29,6 +30,5 @@ var customSortString = function(order, s) {
             }
         }
     }
-    console.log(str,map);
     return str.join('');
 };
