@@ -11,13 +11,17 @@
  * @return {number}
  */
 var countNodes = function(root) {
-    let count=0;
-    const dfs=(node)=>{
-        if(!node)return;
-        count++
-        if(node.left)dfs(node.left);
-        if(node.right)dfs(node.right);
-    }
-    dfs(root);
-    return count;
+    // let count=0;
+    // const dfs=(node)=>{
+    //     if(!node)return;
+    //     count++
+    //     if(node.left)dfs(node.left);
+    //     if(node.right)dfs(node.right);
+    // }
+    // dfs(root);
+    // return count;
+    if (root === null) return 0;
+    let left = countNodes(root.left);
+    let right = countNodes(root.right);
+    return 1 + left + right;
 };
