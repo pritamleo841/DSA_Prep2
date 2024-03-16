@@ -14,10 +14,12 @@ var findMaxLength = function(nums) {
     let count=0;
     let maxLen=0;
     let map=new Map();
+    map.set(0,-1);
     for(let i=0;i<nums.length;i++){
         if(nums[i]===0)count--;
         if(nums[i]===1)count++;
-        if(count===0)maxLen=i+1; //contigous array of 0's and 1's
+        //if(count===0)maxLen=i+1; //contigous array of 0's and 1's
+        //to avoid this line, we can set map.set(0,-1) at top
         if(map.has(count)){
             maxLen=Math.max(maxLen,i-map.get(count));
         }else{
