@@ -3,11 +3,18 @@
  * @return {boolean}
  */
 var isStrictlyPalindromic = function (n) {
-    for(let base=2;base<=n-2;base++){
-        if(!isPalindrome(fromDeci(base,n)))return false;
+    for(let i = 2; i<n -1; i++) {
+        let pal = n.toString(i); //converts to ith base
+        if (pal !== pal.split('').reverse().join('')) return false;
     }
     return true;
+
+    // for(let base=2;base<=n-2;base++){
+    //     if(!isPalindrome(fromDeci(base,n)))return false;
+    // }
+    // return true;
 };
+
 function isPalindrome(num){
     return num===num.split('').reverse().join('');
 };
@@ -23,11 +30,10 @@ function reVal(num) {
 // to a base 'base' and
 function fromDeci(base1, inputNum) {
     let s = "";
-
     // Convert input number is given
     // base by repeatedly dividing it
     // by base and taking remainder
-    while (inputNum > 0) {
+    while(inputNum > 0) {
         s += reVal(inputNum % base1);
         inputNum = parseInt(inputNum / base1, 10);
     }
