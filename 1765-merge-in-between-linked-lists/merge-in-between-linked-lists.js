@@ -18,11 +18,14 @@ var mergeInBetween = function(list1, a, b, list2) {
         if(i===a-1)start=end;
         end=end.next;
     }
+    //at a-1 , we connect start.next to list2
     start.next=list2;
     while(list2.next!=null){
         list2=list2.next;
     }
+    //connect end of list2 to node right after b
     list2.next = end.next;
+    //cut off b from list
     end.next=null;
     return list1;
 };
