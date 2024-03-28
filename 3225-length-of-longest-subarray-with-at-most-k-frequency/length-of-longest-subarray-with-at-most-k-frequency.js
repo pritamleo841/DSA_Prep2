@@ -10,7 +10,7 @@ var maxSubarrayLength = function(nums, k) {
     for(let end=0;end<nums.length;end++){
         freq[nums[end]] = (freq[nums[end]] || 0)+1;
         while(freq[nums[end]]>k){
-            freq[nums[start]]--;
+            freq[nums[start]]--; //shrink the window from left
             start++;
         }
         longest=Math.max(longest,end-start+1); //store max subarray size
