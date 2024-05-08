@@ -3,8 +3,8 @@
  * @return {number}
  */
 var lengthOfLastWord = function(s) {
-    let t=s.split(' ').reverse();
-    for(let ele of t){
+
+    for(let ele of s.split(' ').reverse()){
         if(ele.length>0)return ele.length;
     }
 
