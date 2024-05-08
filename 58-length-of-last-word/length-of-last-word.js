@@ -3,9 +3,9 @@
  * @return {number}
  */
 var lengthOfLastWord = function(s) {
-    let arr = [];
-    for(let ele of s.split(' ')){
-        if(ele.length>0)arr.push(ele);
+    let t=s.split(' ').reverse();
+    for(let ele of t){
+        if(ele.length>0)return ele.length;
     }
-    return arr[arr.length-1].length;
+
 };
