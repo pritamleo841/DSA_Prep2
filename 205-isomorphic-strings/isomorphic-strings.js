@@ -4,7 +4,6 @@
  * @return {boolean}
  */
 var isIsomorphic = function (s, t) {
-
     let charMap = new Map();
     let revCharMap = new Map();
 
@@ -15,14 +14,13 @@ var isIsomorphic = function (s, t) {
         let first = s[i];
         let second = t[i];
 
-        if(
+        if (
             (charMap.has(first) && charMap.get(first) != second) ||
             (revCharMap.has(second) && revCharMap.get(second) != first)
-        )return false;
+        ) return false;
 
         charMap.set(first, second);
         revCharMap.set(second, first);
     }
     return true;
-
 };
