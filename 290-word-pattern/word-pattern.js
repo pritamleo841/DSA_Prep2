@@ -28,6 +28,4 @@ var wordPattern = function(pattern, s) {
        i++;
    }
    return true;
-
-
 };
