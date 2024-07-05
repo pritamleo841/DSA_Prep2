@@ -3,18 +3,13 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    let maxProfit = 0;
-    let left=0,right=1; //left->buy,right->sell
-    while(right<prices.length){
-        //check if there is any profit
-        if(prices[left]<prices[right]){
-            //store profit
-            maxProfit = Math.max(maxProfit,prices[right]-prices[left]);
-        }else{
-            //reassign left to right
-            left=right;
-        }
-        right++;
+    //buy at the lowest price day and sell at the higest price day
+    let buy = Infinity;
+    let sell=0;
+    for(let i=0;i<prices.length;i++){
+        buy = Math.min(buy,prices[i]);
+        sell = Math.max(sell,prices[i]-buy);
     }
-    return maxProfit;
+    return sell;
+    
 };
