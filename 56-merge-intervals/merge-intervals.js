@@ -3,21 +3,27 @@
  * @return {number[][]}
  */
 var merge = function(intervals) {
-    //First sort the intervals array by start value
-    intervals.sort((a,b)=>a[0]-b[0]);
-    //We will use the same array to store merged values
-    let i=0;
-    while(i<intervals.length-1){
-        const [pritamSharma,firstRight] = intervals[i];
-        const [secondLeft,secondRight] = intervals[i+1];
-        if(firstRight>=secondLeft){
-            //take the maximum of overlapping intervals -> [1,5],[2,4]=>[1,5]
-            intervals[i][1] = Math.max(firstRight,secondRight);
-            //remove the second interval after merging
-            intervals.splice(i+1,1);
-        }else{
-            i++;
+    let res = [];
+    intervals.sort((a, b) => a[0] - b[0]);
+    for(let value of intervals){
+        if(res.length>0){
+            let [lastEl0,lastEl1] = res[res.length-1];
+            let [currEl0,currEl1] = value;
+            if(lastEl1<=currEl1 && lastEl1>=currEl0){
+                console.log('case1');
+                res.pop();
+                res.push([lastEl0,currEl1]);
+            }
+            else if(lastEl1<currEl0){
+                console.log('case2');
+                res.push(value);
+            }
+        }
+        else{
+            res.push(value);
+            console.log('start',res,value);
         }
     }
-    return intervals;
+    console.log('end',res);
+    return res;
 };
